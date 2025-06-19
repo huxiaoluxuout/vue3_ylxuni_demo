@@ -3,6 +3,7 @@
     <view class="flex">
       <button @click="testBtn1">完善</button>
       <button @click="testBtn2">未完善</button>
+      <button @click="testBtn21">testBtn21</button>
     </view>
     <view class="flex">
       <button @click="interceptTestBtn3('参数')">拦截</button>
@@ -11,7 +12,8 @@
 </template>
 
 <script>
-import useMustCompleteUserInfo, {profileProxy} from "@/ylxuniCore/useMustCompleteUserInfo";
+import useNextInterceptor from "@/ylxuniCore/common/useNextInterceptor";
+import {onErrorProfileHandler, profileProxy} from "@/ylxuniCore/common/common";
 
 export default {
   data() {
@@ -39,16 +41,24 @@ export default {
 
     testBtn2() {
       console.log('未完善', profileProxy)
-      profileProxy.idNumber = false
+      profileProxy.idNumber = true
       profileProxy.phone = false
       profileProxy.nickName = false
       profileProxy.avatarUrl = false
       profileProxy.actuallyName = false
     },
-    interceptTestBtn3() {
-      useMustCompleteUserInfo({
-        onSuccess: this.testBtn3
-      })('xxx')
+    testBtn21() {
+      profileProxy.haha = false
+
+    },
+    interceptTestBtn3(data) {
+      useNextInterceptor({
+        isNext: profileProxy.idNumber && profileProxy.phone && profileProxy.nickName && profileProxy.actuallyName,
+        onSuccess: () => {
+          this.testBtn3(data)
+        },
+        onError: onErrorProfileHandler
+      })()
     },
     testBtn3(data) {
       console.log(data, '正常执行代码。。。。。。。。。。', profileProxy)

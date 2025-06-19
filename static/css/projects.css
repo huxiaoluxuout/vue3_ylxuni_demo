@@ -1,0 +1,86 @@
+.vc-bgc {
+    background-color: #189ACF;
+}
+
+.vc-bgc-999 {
+    background-color: #999;
+}
+
+.vc-bgc-147AB0 {
+    background-color: #147AB0;
+}
+
+.vc-bgc-189ACF {
+    background-color: #189ACF;
+}
+
+.vc-bgc-55A6CD {
+    background-color: #55A6CD;
+}
+
+.vc-bgc-1BB0D1 {
+    background-color: #1BB0D1;
+}
+
+.vc-bgc-53BFCD {
+    background-color: #53BFCD;
+}
+
+.vc-bgc-74C6C7 {
+    background-color: #74C6C7;
+}
+.vc-c-red {
+    color: red;
+}
+
+.vc-bgc-5C69AF {
+    background-color: #5C69AF;
+}
+
+.vc-c-89D2DD {
+    color: #5C69AF;
+}
+
+.vc-c-189ACF {
+    color: #189ACF;
+}
+
+.vc-c-707070 {
+    color: #707070;
+}
+
+.vc-c-868686 {
+    color: #868686;
+}
+
+.vc-c-2c2c2c {
+    color: #2c2c2c;
+}
+
+.vc-c-2F2F2F {
+    color: #2F2F2F;
+}
+.vc-c-020202 {
+    color: #020202;
+}
+
+
+.vc-border-b {
+    border-bottom: 2rpx solid #ffffff
+}
+
+.vc-border-r {
+    border-right: 2rpx solid #ffffff
+}
+
+.vc-text-justify {
+    text-justify: inter-word;
+    text-align: justify;
+    word-break: break-word;
+    word-spacing: -0.09em;
+}
+
+.h-80 {
+    height: 80rpx;
+}
+

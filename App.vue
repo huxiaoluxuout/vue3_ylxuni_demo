@@ -1,11 +1,16 @@
 <script>
 
   import {useOnGlobal} from "@/ylxuniCore/useOnGlobal";
+  import onBle from "@/ylxuniCore/ylxBle/onBle";
+
+
 
   export default {
 		onLaunch: function() {
 			console.log('App Launch')
       useOnGlobal('回调信息')
+      onBle()
+
 		},
 		onShow: function() {
 			console.log('App Show')

@@ -16,7 +16,7 @@
 
 <script>
 import useNextInterceptor from "@/ylxuniCore/common/useNextInterceptor";
-import {onErrorProfileHandler, profileProxy} from "@/ylxuniCore/common/common";
+import {onErrorProfileHandler, profileProxy} from "@/ylxuniCore/common/nextInterceptorKeys";
 import {ylxEventBus} from "@/ylxuniCore/useylxuni";
 import {ylxNavigateTo} from "@/utils/uniTools";
 

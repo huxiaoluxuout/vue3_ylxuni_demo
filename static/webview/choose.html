@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
+    <style>
+        body{
+            margin-top: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        .button-choose {
+            font-size: 40px;
+            width: 250px;
+            height: 150px;
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+<!--accept=".hex,application/octet-stream"-->
+<input type="file"   accept=".hex,application/octet-stream,text/plain"  id="fileInput" style="display: none;">
+<button onclick="document.getElementById('fileInput').click()" class="button-choose">选择文件</button>
+<script>
+    document.getElementById('fileInput').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        console.log('file',file.name)
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            console.log(e)
+            const hexContent = e.target.result;
+            // 发送数据到 UniApp
+            uni.postMessage({
+                data: {
+                    type: 'hexFile',
+                    content: hexContent,
+                    fileName: file.name
+                }
+            });
+        };
+        reader.readAsText(file);
+    });
+</script>
+</body>
+</html>

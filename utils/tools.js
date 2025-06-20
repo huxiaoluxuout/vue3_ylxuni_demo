@@ -201,16 +201,6 @@ export function verificationPhone(phoneStr) {
     return reg.test(phoneStr)
 }
 
-/*
-  if (!verificationPhone(phone.value)) {
-    uni.showToast({
-      icon: 'none',
-      title: '输入正确的手机号'
-    })
-    return
-  }
-* */
-
 
 export function simulateOperation() {
     return new Promise((resolve, reject) => {
@@ -269,36 +259,6 @@ export class ArrayPlayer {
     }
 }
 
-// 三角形判断
-export function isValidTriangle(a, b, c) {
-    // 检查任意两边之和是否大于第三边
-    return (a + b > c) && (a + c > b) && (b + c > a);
-}
-
-// 算余弦值
-export function getTriangleAngle(a, b, c, sideOppositeAngle) {
-    // 使用余弦定理计算余弦值
-    let cosineValue;
-    if (sideOppositeAngle === 'a') {
-        cosineValue = (b ** 2 + c ** 2 - a ** 2) / (2 * b * c);
-    } else if (sideOppositeAngle === 'b') {
-        cosineValue = (a ** 2 + c ** 2 - b ** 2) / (2 * a * c);
-    } else if (sideOppositeAngle === 'c') {
-        cosineValue = (a ** 2 + b ** 2 - c ** 2) / (2 * a * b);
-    } else {
-        throw new Error('Invalid sideOppositeAngle value. It should be "a", "b", or "c".');
-    }
-
-    // 使用反余弦函数计算角度（以弧度为单位）
-    let angleRadians = Math.acos(cosineValue);
-
-    // 将弧度转换为角度
-    let angleDegrees = angleRadians * (180 / Math.PI);
-
-    // 返回角度值（四舍五入到小数点后两位）
-    return Math.round(angleDegrees * 1000) / 1000;
-    // return angleRadians;
-}
 
 export function debounce(func, delay) {
     let timer; // 定时器
@@ -315,12 +275,6 @@ export function debounce(func, delay) {
         }, delay);
     };
 }
-
-export function ab2hex(buffer) {
-    return Array.from(new Uint8Array(buffer), bit => ('00' + bit.toString(16)).slice(-2)).join('');
-}
-
-// throttle.js
 
 /**
  * 节流函数 - 首次调用立即执行，结束后额外执行一次
@@ -507,19 +461,3 @@ export function compareVersions(v1, v2) {
 
     return 0; // 版本相同
 }
-/*export function compareVersions(v1, v2) {
-    const parts1 = v1.split('.').map(Number);
-    const parts2 = v2.split('.').map(Number);
-
-    const maxLength = Math.max(parts1.length, parts2.length);
-
-    for (let i = 0; i < maxLength; i++) {
-        const num1 = parts1[i] || 0;
-        const num2 = parts2[i] || 0;
-
-        if (num1 > num2) return 1;
-        if (num1 < num2) return -1;
-    }
-
-    return 0;
-}*/
